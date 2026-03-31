@@ -1,0 +1,1234 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>老宅延壽機能復新補助計畫-小楊說房整理</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1c1a14;
+  --ink2: #3d3a2e;
+  --ink3: #6b6654;
+  --paper: #faf8f3;
+  --cream: #f2eed8;
+  --sage: #7a9e7e;
+  --sage-light: #c8deca;
+  --sage-dark: #3d6b41;
+  --amber: #c9870a;
+  --amber-light: #fef3d0;
+  --amber-dark: #8c5c00;
+  --rust: #c0522a;
+  --rust-light: #fceae3;
+  --blue: #2a5f8a;
+  --blue-light: #e0edf7;
+  --border: rgba(28,26,20,0.12);
+  --r: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3.5rem 2rem 3rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent, transparent 30px,
+    rgba(255,255,255,0.015) 30px, rgba(255,255,255,0.015) 31px
+  );
+}
+.hero-badge {
+  display: inline-block;
+  background: var(--sage);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1.2rem;
+}
+.hero h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.hero h1 span { color: #b5d9b8; }
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 2rem;
+  letter-spacing: 0.04em;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  position: relative;
+}
+.stat-pill {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 50px;
+  padding: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.stat-pill strong { font-size: 1.4rem; font-weight: 700; color: #b5d9b8; }
+.stat-pill span { font-size: 12px; color: rgba(255,255,255,0.5); }
+
+/* ── NAV PILLS ── */
+.nav-wrap {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  padding: 0.6rem 1rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-wrap::-webkit-scrollbar { display: none; }
+.nav-inner {
+  display: flex; gap: 6px;
+  max-width: 860px; margin: 0 auto;
+  flex-wrap: nowrap;
+  min-width: max-content;
+}
+.nav-btn {
+  padding: 7px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--ink3);
+  font-size: 14px;
+  font-family: 'Noto Sans TC', sans-serif;
+  cursor: pointer;
+  transition: all .18s;
+  white-space: nowrap;
+}
+.nav-btn.active, .nav-btn:hover {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* ── LAYOUT ── */
+.content { max-width: 860px; margin: 0 auto; padding: 0 1rem; }
+.section { padding: 2.5rem 0; border-bottom: 1px solid var(--border); }
+.section:last-child { border-bottom: none; }
+
+.sec-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.1em;
+  color: var(--sage-dark); text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.sec-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 700; margin-bottom: 1.2rem; line-height: 1.3;
+}
+.sec-lead {
+  font-size: 15px; color: var(--ink3);
+  margin-bottom: 1.5rem; line-height: 1.9;
+  max-width: 640px;
+}
+
+/* ── CARDS ── */
+.grid { display: grid; gap: 12px; }
+.grid-2 { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.grid-3 { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+.card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.2rem;
+}
+.card-accent { border-left: 3px solid var(--sage); }
+.card-amber { border-left: 3px solid var(--amber); }
+.card-rust { border-left: 3px solid var(--rust); }
+.card-blue { border-left: 3px solid var(--blue); }
+
+.card h3 {
+  font-size: 15px; font-weight: 700;
+  margin-bottom: 8px; color: var(--ink);
+  display: flex; align-items: center; gap: 6px;
+}
+.card p, .card li { font-size: 14px; color: var(--ink2); line-height: 1.7; }
+.card ul { list-style: none; }
+.card ul li { padding: 3px 0; padding-left: 14px; position: relative; }
+.card ul li::before {
+  content: '·'; position: absolute; left: 2px;
+  color: var(--sage); font-weight: 700;
+}
+
+/* ── ICON CIRCLE ── */
+.ic {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 13px; flex-shrink: 0;
+}
+.ic-sage { background: var(--sage-light); color: var(--sage-dark); }
+.ic-amber { background: var(--amber-light); color: var(--amber-dark); }
+.ic-rust { background: var(--rust-light); color: var(--rust); }
+.ic-blue { background: var(--blue-light); color: var(--blue); }
+
+/* ── SUBSIDY TABLE ── */
+.subsidy-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 600px) { .subsidy-grid { grid-template-columns: 1fr; } }
+
+.sub-box {
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  overflow: hidden;
+  background: #fff;
+}
+.sub-box-head {
+  padding: 12px 16px;
+  font-weight: 700; font-size: 15px;
+  display: flex; align-items: center; gap: 8px;
+}
+.sub-box-head.apt { background: var(--sage-light); color: var(--sage-dark); }
+.sub-box-head.house { background: var(--blue-light); color: var(--blue); }
+
+.sub-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 9px 16px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+}
+.sub-row:first-of-type { border-top: none; }
+.sub-row .label { color: var(--ink2); }
+.sub-row .amount {
+  font-weight: 700; font-size: 14px;
+  color: var(--ink);
+  text-align: right;
+}
+.sub-row .amount.big { color: var(--sage-dark); font-size: 16px; }
+.sub-row .amount.na { color: var(--ink3); font-weight: 400; font-size: 13px; }
+.sub-row.highlight { background: #f5fbf6; }
+.sub-row.note-row { background: var(--amber-light); }
+.sub-row.note-row .label { color: var(--amber-dark); font-size: 13px; }
+
+/* ── CALLOUT ── */
+.callout {
+  border-radius: var(--r);
+  padding: 14px 18px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  line-height: 1.75;
+}
+.callout strong { display: block; font-weight: 700; margin-bottom: 3px; }
+.callout-green { background: #f0f8f0; border-left: 3px solid var(--sage); color: var(--sage-dark); }
+.callout-amber { background: var(--amber-light); border-left: 3px solid var(--amber); color: var(--amber-dark); }
+.callout-rust { background: var(--rust-light); border-left: 3px solid var(--rust); color: var(--rust); }
+.callout-blue { background: var(--blue-light); border-left: 3px solid var(--blue); color: var(--blue); }
+
+/* ── STEP ── */
+.steps { display: flex; flex-direction: column; gap: 0; }
+.step {
+  display: flex; gap: 14px; align-items: flex-start;
+  padding: 14px 0;
+  border-bottom: 1px dashed var(--border);
+  position: relative;
+}
+.step:last-child { border-bottom: none; }
+.step-num {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--ink); color: #fff;
+  font-size: 14px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+.step-body h4 { font-size: 15px; font-weight: 700; margin-bottom: 3px; }
+.step-body p { font-size: 14px; color: var(--ink3); }
+.step-tag {
+  display: inline-block; font-size: 12px;
+  background: var(--cream); color: var(--ink3);
+  padding: 2px 8px; border-radius: 4px;
+  margin-top: 5px; margin-right: 4px;
+}
+.step-tag.warn { background: var(--amber-light); color: var(--amber-dark); }
+
+/* ── PRIORITY BOX ── */
+.priority-list { display: flex; flex-direction: column; gap: 8px; }
+.p-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 8px; padding: 10px 14px;
+  font-size: 14px;
+}
+.p-num {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--sage-light); color: var(--sage-dark);
+  font-size: 12px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+/* ── COMPARE TABLE ── */
+.compare-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.compare-table th {
+  padding: 10px 14px; text-align: left;
+  background: var(--cream); color: var(--ink);
+  font-weight: 700; font-size: 13px;
+}
+.compare-table td {
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink2); vertical-align: top;
+}
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table td:first-child { color: var(--ink3); font-size: 13px; }
+.compare-table td.good { color: var(--sage-dark); }
+.compare-table td.neutral { color: var(--ink3); }
+.compare-table .col-head {
+  font-weight: 700; color: var(--ink); font-size: 14px;
+}
+
+/* ── NOTICE ITEMS ── */
+.notice-item {
+  display: flex; gap: 10px;
+  padding: 10px 0; border-bottom: 1px solid var(--border);
+  font-size: 14px; align-items: flex-start;
+}
+.notice-item:last-child { border-bottom: none; }
+.notice-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  margin-top: 6px; flex-shrink: 0;
+}
+.nd-green { background: var(--sage); }
+.nd-amber { background: var(--amber); }
+.nd-rust { background: var(--rust); }
+
+/* ── TAG ── */
+.tag {
+  display: inline-block; font-size: 12px; font-weight: 700;
+  padding: 3px 9px; border-radius: 4px; margin-bottom: 8px;
+}
+.tag-must { background: #fdecea; color: var(--rust); }
+.tag-opt { background: var(--blue-light); color: var(--blue); }
+.tag-new { background: var(--amber-light); color: var(--amber-dark); }
+
+/* ── BUDGET BANNER ── */
+.budget-banner {
+  background: var(--sage-dark);
+  color: #fff;
+  border-radius: var(--r);
+  padding: 1.5rem 1.8rem;
+  display: flex; align-items: center; gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+.budget-main { font-family: 'Noto Serif TC', serif; }
+.budget-main strong { display: block; font-size: 2rem; font-weight: 700; line-height: 1; }
+.budget-main span { font-size: 13px; opacity: 0.7; }
+.budget-divider { width: 1px; height: 50px; background: rgba(255,255,255,0.2); }
+.budget-detail { font-size: 14px; opacity: 0.85; line-height: 1.9; }
+
+/* ── FILTER TABS ── */
+.filter-row { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 1.2rem; }
+.filter-btn {
+  padding: 6px 16px; border-radius: 50px;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--ink3);
+  font-size: 13px; cursor: pointer;
+  font-family: 'Noto Sans TC', sans-serif;
+  transition: all .15s;
+}
+.filter-btn.on { background: var(--sage-dark); color: #fff; border-color: var(--sage-dark); }
+
+/* ── FAQ ── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 8px;
+  background: #fff;
+}
+.faq-q {
+  padding: 14px 16px;
+  font-size: 14px; font-weight: 500;
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 8px;
+}
+.faq-q:hover { background: var(--cream); }
+.faq-arrow { font-size: 12px; color: var(--ink3); transition: transform .2s; flex-shrink: 0; }
+.faq-a {
+  display: none;
+  padding: 12px 16px 14px;
+  font-size: 14px; color: var(--ink2); line-height: 1.8;
+  border-top: 1px solid var(--border);
+}
+.faq-item.open .faq-a { display: block; }
+.faq-item.open .faq-arrow { transform: rotate(90deg); }
+
+/* ── CONTACT GRID ── */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+}
+.contact-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 13px;
+}
+.contact-card .city { font-weight: 700; color: var(--ink); margin-bottom: 2px; font-size: 14px; }
+.contact-card .dept { color: var(--ink3); font-size: 12px; margin-bottom: 3px; }
+.contact-card .tel { color: var(--blue); font-weight: 500; font-size: 13px; }
+
+/* ── FOOTER ── */
+.footer {
+  background: var(--ink);
+  color: rgba(255,255,255,0.5);
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 13px;
+  line-height: 2;
+}
+.footer a { color: rgba(255,255,255,0.7); }
+
+/* ── STICKY CHECKER ── */
+.checker-wrap {
+  background: var(--cream);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+.checker-title { font-size: 15px; font-weight: 700; margin-bottom: 10px; }
+.checker-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+.check-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 14px; cursor: pointer;
+}
+.check-item input { accent-color: var(--sage-dark); width: 16px; height: 16px; }
+#checker-result {
+  font-size: 14px; padding: 10px 14px;
+  border-radius: 8px; display: none;
+  line-height: 1.75;
+}
+
+/* ── AD CARD ── */
+.ad-card {
+  border-radius: var(--r);
+  overflow: hidden;
+  margin: 1.8rem 0;
+  box-shadow: 0 2px 12px rgba(28,26,20,0.08);
+  display: block;
+  text-decoration: none;
+  transition: transform .18s, box-shadow .18s;
+  position: relative;
+}
+.ad-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(28,26,20,0.14);
+}
+.ad-inner {
+  display: flex; align-items: stretch;
+  min-height: 88px;
+}
+.ad-color-bar {
+  width: 6px;
+  flex-shrink: 0;
+}
+.ad-body {
+  padding: 14px 16px;
+  flex: 1;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-left: none;
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.ad-eyebrow {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: 0.09em; text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ad-title {
+  font-size: 15px; font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+.ad-sub {
+  font-size: 13px; color: var(--ink3);
+  line-height: 1.55;
+}
+.ad-cta {
+  display: inline-flex; align-items: center; gap: 5px;
+  margin-top: 8px;
+  font-size: 13px; font-weight: 700;
+  padding: 5px 14px;
+  border-radius: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+.ad-label {
+  position: absolute; top: 8px; right: 10px;
+  font-size: 10px; color: var(--ink3);
+  background: var(--cream);
+  padding: 2px 6px; border-radius: 3px;
+  letter-spacing: 0.04em;
+}
+
+/* ── LINE FLOAT ── */
+.line-float {
+  position: fixed;
+  bottom: 24px; right: 20px;
+  z-index: 999;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 6px;
+}
+.line-float a {
+  background: #06C755;
+  color: #fff;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(6,199,85,0.4);
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+  transition: transform .15s, box-shadow .15s;
+}
+.line-float a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6,199,85,0.45);
+}
+.line-float-label {
+  font-size: 11px; color: var(--ink3);
+  background: rgba(255,255,255,0.9);
+  padding: 2px 8px; border-radius: 4px;
+  letter-spacing: 0.04em;
+}
+
+/* ── AUTHOR BOX ── */
+.author-box {
+  background: var(--cream);
+  border-top: 2px solid var(--sage-light);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+.author-box h3 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.1rem; margin-bottom: 0.6rem;
+}
+.author-box p { font-size: 14px; color: var(--ink2); line-height: 1.8; margin-bottom: 1.2rem; }
+.line-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: #06C755; color: #fff;
+  border-radius: 50px; padding: 12px 28px;
+  font-size: 15px; font-weight: 700;
+  text-decoration: none;
+  transition: opacity .15s;
+}
+.line-btn:hover { opacity: 0.88; }
+
+/* ── ANIM ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fadein { animation: fadeUp .4s ease both; }
+
+/* ── RWD ── */
+@media (max-width: 600px) {
+  body { font-size: 15px; }
+  .hero { padding: 2.5rem 1rem 2rem; }
+  .hero-stats { gap: 0.8rem; }
+  .subsidy-grid { grid-template-columns: 1fr; }
+  .budget-banner { flex-direction: column; gap: 0.8rem; }
+  .budget-divider { display: none; }
+  .sec-title { font-size: 1.35rem; }
+  .card p, .card li, .step-body p, .faq-a, .sec-lead { font-size: 15px; }
+  .compare-table { font-size: 13px; }
+  .compare-table th, .compare-table td { padding: 8px 10px; }
+  .contact-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+  .line-float { bottom: 16px; right: 12px; }
+  .line-float a { font-size: 14px; padding: 10px 16px; }
+  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+</style>
+</head>
+<body>
+
+<!-- LINE FLOATING BUTTON -->
+<div class="line-float">
+  <a href="https://lin.ee/sieT4fn" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+      <path d="M24 4C13 4 4 11.8 4 21.4c0 8.5 7.5 15.6 17.7 17.1.7.2 1.6.5 1.8 1.1.2.6.1 1.5 0 2.1l-.3 1.6c-.1.5-.4 2 1.8 1.1 2.2-.9 11.8-7 16.1-12C44.1 28.8 44 25.2 44 24c0-11-9-20-20-20z" fill="#fff"/>
+    </svg>
+    加 LINE 諮詢
+  </a>
+  <span class="line-float-label">小楊說房｜桃園房仲</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">內政部 · 國土管理署</div>
+  <h1>老宅延壽<br><span>機能復新補助計畫</span></h1>
+  <p class="hero-sub">舊厝換新衫 · 好康報你知 · 至民國116年12月31日止</p>
+  <div class="hero-stats">
+    <div class="stat-pill"><strong>50億</strong><span>特別預算</span></div>
+    <div class="stat-pill"><strong>65%</strong><span>補助上限比例</span></div>
+    <div class="stat-pill"><strong>30年+</strong><span>老宅適用</span></div>
+    <div class="stat-pill"><strong>5大主軸</strong><span>補助項目</span></div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav-wrap">
+  <div class="nav-inner">
+    <button class="nav-btn active" onclick="scrollSection('why', this)">為何推動</button>
+    <button class="nav-btn" onclick="scrollSection('who', this)">誰能申請</button>
+    <button class="nav-btn" onclick="scrollSection('items', this)">補助項目</button>
+    <button class="nav-btn" onclick="scrollSection('flow', this)">申請流程</button>
+    <button class="nav-btn" onclick="scrollSection('priority', this)">優先原則</button>
+    <button class="nav-btn" onclick="scrollSection('compare', this)">與都更比較</button>
+    <button class="nav-btn" onclick="scrollSection('faq', this)">常見問題</button>
+    <button class="nav-btn" onclick="scrollSection('contact', this)">聯絡窗口</button>
+  </div>
+</div>
+
+<div class="content">
+
+<!-- 1. 為何推動 -->
+<div class="section fadein" id="why">
+  <div class="sec-label">背景說明</div>
+  <div class="sec-title">人屋雙老，為何要補助？</div>
+  <div class="sec-lead">台灣正面臨人口老化與老屋老化同步進行的「雙老困境」，政府推出這項計畫，讓老宅不必拆除重建，也能透過修繕恢復機能，讓長輩安心在宅養老。</div>
+
+  <div class="grid grid-3" style="margin-bottom:1.2rem">
+    <div class="card card-accent">
+      <h3><span class="ic ic-sage">🏠</span> 屋</h3>
+      <p>全國925萬戶住宅中，<strong>30年以上老宅達516萬戶</strong>，比率過半。外牆磁磚剝落、漏水、管線老舊問題普遍。</p>
+    </div>
+    <div class="card card-amber">
+      <h3><span class="ic ic-amber">👴</span> 人</h3>
+      <p>台灣已進入超高齡社會，<strong>65歲以上人口超過467萬人</strong>，占全國20%。老公寓缺電梯，長者行動不便。</p>
+    </div>
+    <div class="card card-blue">
+      <h3><span class="ic ic-blue">🌱</span> 解法</h3>
+      <p>提供修繕補助，解決老宅安全疑慮、機能不足問題，讓老屋「不拆也能住得好」。</p>
+    </div>
+  </div>
+
+  <div class="callout callout-amber">
+    <strong>⚠️ 為什麼不只靠都市更新？</strong>
+    都更耗時長（通常10年以上）、整合困難（需全體同意），且有「強制拆除」壓力。老宅延壽補助提供不需拆除、快速改善的替代路徑。
+  </div>
+</div>
+
+<!-- AD SLOT: after section 1 -->
+<div id="ad-slot-1"></div>
+
+<!-- 2. 誰能申請 -->
+<div class="section fadein" id="who">
+  <div class="sec-label">申請資格</div>
+  <div class="sec-title">你的房子符合條件嗎？</div>
+
+  <div class="checker-wrap">
+    <div class="checker-title">📋 快速資格自評（勾選符合條件）</div>
+    <div class="checker-row">
+      <label class="check-item"><input type="checkbox" id="c1" onchange="checkEligibility()"> 屋齡30年以上</label>
+      <label class="check-item"><input type="checkbox" id="c2" onchange="checkEligibility()"> 有使用執照或合法證明</label>
+      <label class="check-item"><input type="checkbox" id="c3" onchange="checkEligibility()"> 公寓4～6層 或 透天6層以下</label>
+      <label class="check-item"><input type="checkbox" id="c4" onchange="checkEligibility()"> 住宅使用面積占1/2以上</label>
+      <label class="check-item"><input type="checkbox" id="c5" onchange="checkEligibility()"> 未進入都更/危老程序</label>
+      <label class="check-item"><input type="checkbox" id="c6" onchange="checkEligibility()"> 公寓非單一所有權人持有</label>
+    </div>
+    <div id="checker-result"></div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card card-accent">
+      <h3><span class="ic ic-sage">🏢</span> 公寓（無電梯集合住宅）</h3>
+      <ul>
+        <li>4～6層樓，具使用執照或建物合法證明</li>
+        <li>屋齡30年以上</li>
+        <li>住宅使用面積 ≥ 總面積1/2</li>
+        <li>非單一所有權人持有整棟</li>
+        <li>未啟動都更或危老程序</li>
+      </ul>
+    </div>
+    <div class="card card-blue">
+      <h3><span class="ic ic-blue">🏠</span> 透天住宅</h3>
+      <ul>
+        <li>6層以下，具使用執照或建物合法證明</li>
+        <li>屋齡30年以上</li>
+        <li>住宅使用面積 ≥ 總面積1/2</li>
+        <li>未啟動都更或危老程序</li>
+        <li>3棟以上連棟共同申請可提高優先順序</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:1rem">
+    <strong>💡 申請主體說明</strong>
+    公寓：管理委員會或全體區分所有權人推派代表。<br>
+    透天：建物所有權人或多棟聯合申請代表人。<br>
+    可委託「老宅延壽規劃師」（未來將於都市更新入口網公布名冊）代為辦理。
+  </div>
+</div>
+
+<!-- 3. 補助項目 -->
+<div class="section fadein" id="items">
+  <div class="sec-label">補助內容</div>
+  <div class="sec-title">可以補助什麼？上限多少？</div>
+
+  <div class="budget-banner">
+    <div class="budget-main">
+      <strong>50億元</strong>
+      <span>114～116年特別預算</span>
+    </div>
+    <div class="budget-divider"></div>
+    <div class="budget-detail">
+      補助上限：工程費用 × <strong>65%</strong><br>
+      公寓共用部分 最高 <strong>500萬元/棟</strong><br>
+      專有室內部分 最高 <strong>20萬元/戶</strong>（特殊情況30萬元）<br>
+      透天住宅 最高 <strong>25萬元/戶</strong>（特殊情況30萬元）
+    </div>
+  </div>
+
+  <div class="filter-row">
+    <button class="filter-btn on" onclick="filterItems('all',this)">全部項目</button>
+    <button class="filter-btn" onclick="filterItems('apt',this)">僅公寓</button>
+    <button class="filter-btn" onclick="filterItems('house',this)">僅透天</button>
+    <button class="filter-btn" onclick="filterItems('both',this)">公寓＋透天均適用</button>
+  </div>
+
+  <div id="items-list" class="grid" style="gap:10px">
+    <!-- 公寓共用 -->
+    <div data-type="apt" class="card card-accent">
+      <span class="tag tag-must">公寓專用</span>
+      <h3><span class="ic ic-sage">🛗</span> 增設電梯</h3>
+      <p>安裝新電梯或既有電梯更新，上限含於500萬元/棟共用補助中。需結構安全評估通過。</p>
+    </div>
+    <div data-type="apt" class="card card-accent">
+      <span class="tag tag-must">公寓專用</span>
+      <h3><span class="ic ic-sage">🏗️</span> 外牆立面修繕</h3>
+      <p>磁磚剝落修補、外牆防水處理、外牆整新。上限含於500萬元/棟共用補助中。</p>
+    </div>
+    <div data-type="apt" class="card card-accent">
+      <span class="tag tag-must">公寓專用</span>
+      <h3><span class="ic ic-sage">🚰</span> 共用管線更新</h3>
+      <p>共用水管、污水管、瓦斯管、電氣幹線等老舊管線汰換。</p>
+    </div>
+    <div data-type="apt" class="card card-accent">
+      <span class="tag tag-must">公寓專用</span>
+      <h3><span class="ic ic-sage">♿</span> 共用無障礙設施</h3>
+      <p>坡道、扶手、無障礙出入口等共用空間無障礙改善。</p>
+    </div>
+    <!-- 公寓+透天均有室內 -->
+    <div data-type="both" class="card card-blue">
+      <span class="tag tag-opt">公寓＋透天均適用</span>
+      <h3><span class="ic ic-blue">🛁</span> 室內管線更新</h3>
+      <p>室內水電管線、污水管老舊汰換（屋齡30年以上老宅管線安全升級）。上限20萬元/戶，特殊案例30萬元。</p>
+    </div>
+    <div data-type="both" class="card card-blue">
+      <span class="tag tag-opt">公寓＋透天均適用</span>
+      <h3><span class="ic ic-blue">🪟</span> 節能改善</h3>
+      <p>外窗、隔熱、遮陽設備等節能設施，含隔熱膜、隔熱玻璃等。</p>
+    </div>
+    <div data-type="both" class="card card-blue">
+      <span class="tag tag-opt">公寓＋透天均適用</span>
+      <h3><span class="ic ic-blue">🚿</span> 室內無障礙設施</h3>
+      <p>浴廁無障礙改善、扶手、防滑設備。若有65歲以上長者，可加碼補助至30萬元/戶。</p>
+    </div>
+    <!-- 透天 -->
+    <div data-type="house" class="card card-amber">
+      <span class="tag tag-new">透天專用</span>
+      <h3><span class="ic ic-amber">🏠</span> 外牆及屋頂修繕</h3>
+      <p>外牆防水、磁磚翻修、屋頂防水修繕。上限25萬元/戶，特殊案例30萬元。</p>
+    </div>
+    <div data-type="house" class="card card-amber">
+      <span class="tag tag-new">透天專用</span>
+      <h3><span class="ic ic-amber">🏚️</span> 違規物拆除</h3>
+      <p>老舊招牌、違規物、違建拆除補助，上限40萬元/棟。申請老宅延壽並不強制要求拆除。</p>
+    </div>
+  </div>
+
+  <div class="callout callout-amber" style="margin-top:1.2rem">
+    <strong>📌 額外加碼條件</strong>
+    ① 戶籍成員有65歲以上長者 → 室內補助可加碼至30萬元/戶<br>
+    ② 列冊急需改善的老舊建築 → 優先審核<br>
+    ③ 同一申請含多項修繕 → 可合併核定，不限單一項目
+  </div>
+</div>
+
+<!-- AD SLOT: after section 3 -->
+<div id="ad-slot-2"></div>
+
+<!-- 4. 申請流程 -->
+<div class="section fadein" id="flow">
+  <div class="sec-label">申請流程</div>
+  <div class="sec-title">怎麼申請？幾個步驟？</div>
+  <div class="sec-lead">整體流程約分6大步驟，公寓需先完成結構安全性能評估，透天可直接申請補助。</div>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h4>確認申請資格</h4>
+        <p>對照前述條件，確認屋齡、樓層、使用執照、使用性質均符合。</p>
+        <span class="step-tag">自行確認</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h4>結構安全性能評估（公寓必要、透天建議）</h4>
+        <p>委請建築師或技師進行評估，費用可另申請補助（最高15萬元/棟）。評估結果不公開，不影響補助申請。</p>
+        <span class="step-tag warn">公寓必辦</span><span class="step-tag">透天建議辦理</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h4>籌組申請代表 / 取得住戶同意</h4>
+        <p>公寓：透過管委會或推派區分所有權人代表。透天：建物所有人或聯棟代表。</p>
+        <span class="step-tag">住戶協調</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h4>填寫申請書及備妥文件</h4>
+        <p>包含：申請書、土地建物謄本、使用執照影本（或合法證明）、住戶同意書、修繕計畫概要。</p>
+        <span class="step-tag warn">備齊文件</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h4>向地方政府提出申請</h4>
+        <p>向各縣市政府主管機關窗口提出，各縣市受理窗口詳見聯絡窗口區。</p>
+        <span class="step-tag">送件</span>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h4>審核核定 → 施工 → 請款</h4>
+        <p>補助核定後進行修繕施工，完工後檢附相關收據向地方政府請款。</p>
+        <span class="step-tag">請款核銷</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout callout-blue" style="margin-top:1.2rem">
+    <strong>🕐 時程注意</strong>
+    計畫有效期至民國116年12月31日止。預算有限，建議儘早申請。結構安全評估、文件備齊需時，建議至少提前3個月規劃。
+  </div>
+</div>
+
+<!-- 5. 優先原則 -->
+<div class="section fadein" id="priority">
+  <div class="sec-label">審核機制</div>
+  <div class="sec-title">誰會優先被核定？</div>
+  <div class="sec-lead">補助名額與預算有限，地方政府依以下條件決定核定優先順序。</div>
+
+  <div class="priority-list">
+    <div class="p-item"><div class="p-num">1</div><div>結構安全性能評估等級較低（E或D級）的建物，優先核定</div></div>
+    <div class="p-item"><div class="p-num">2</div><div>有65歲以上長者設籍（公寓共用補助），或居住有高齡者</div></div>
+    <div class="p-item"><div class="p-num">3</div><div>3棟以上透天連棟共同申請（提高整體改善效益）</div></div>
+    <div class="p-item"><div class="p-num">4</div><div>修繕項目包含「增設電梯」（高優先度）</div></div>
+    <div class="p-item"><div class="p-num">5</div><div>曾受地震、颱風等天災影響，結構有受損疑慮</div></div>
+    <div class="p-item"><div class="p-num">6</div><div>整棟（或多戶）共同申請，而非單一住戶申請</div></div>
+  </div>
+
+  <div class="callout callout-green" style="margin-top:1.2rem">
+    <strong>📌 小楊建議</strong>
+    若鄰居也有修繕需求，可協調多戶一同申請，不僅提高核定優先順序，也能合併共用部分補助，讓每戶分攤費用更低。
+  </div>
+</div>
+
+<!-- AD SLOT: after section 5 -->
+<div id="ad-slot-3"></div>
+
+<!-- 6. 與都更比較 -->
+<div class="section fadein" id="compare">
+  <div class="sec-label">方案比較</div>
+  <div class="sec-title">老宅延壽 vs 都市更新 vs 危老重建</div>
+  <div class="sec-lead">不同路徑各有適合情境，以下整理三種方案的關鍵差異，協助屋主判斷最適合的選擇。</div>
+
+  <div class="table-wrap">
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>比較項目</th>
+        <th class="col-head">老宅延壽補助</th>
+        <th class="col-head">都市更新整建維護</th>
+        <th class="col-head">危老重建</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>是否需要拆除</td>
+        <td class="good">✗ 不拆除</td>
+        <td class="neutral">✗ 整建類不拆，重建類拆</td>
+        <td class="neutral">✓ 需全棟拆除重建</td>
+      </tr>
+      <tr>
+        <td>需要住戶全體同意</td>
+        <td class="good">✗ 僅代表申請即可</td>
+        <td class="neutral">△ 整建維護需多數同意</td>
+        <td class="neutral">✓ 需全體同意</td>
+      </tr>
+      <tr>
+        <td>作業時程</td>
+        <td class="good">快（6個月～1年）</td>
+        <td class="neutral">中（3～5年）</td>
+        <td class="neutral">長（5～10年以上）</td>
+      </tr>
+      <tr>
+        <td>補助方式</td>
+        <td class="good">工程費用65%直接補助</td>
+        <td class="neutral">部分補助＋容積獎勵</td>
+        <td class="neutral">容積率獎勵為主</td>
+      </tr>
+      <tr>
+        <td>適合情境</td>
+        <td class="good">修繕即可、不想搬遷</td>
+        <td class="neutral">中度整修</td>
+        <td class="neutral">房屋已不堪使用</td>
+      </tr>
+      <tr>
+        <td>可重複申請？</td>
+        <td colspan="2" style="color:var(--amber-dark)">✓ 不同項目可重複；相同項目不可重複申請</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Cross-ministry -->
+  <div style="margin-top:1.5rem">
+    <div class="sec-label" style="margin-bottom:6px">跨部會資源整合</div>
+    <div class="grid grid-3">
+      <div class="card card-accent">
+        <h3><span class="ic ic-sage">💡</span> 經濟部</h3>
+        <ul>
+          <li>住宅家電汰舊換新節能補助：3,000元/台（一級冷氣、冰箱）</li>
+          <li>家戶屋頂太陽光電：3,000元/kW，每案上限30萬元</li>
+          <li>建築整合型光電示範：5萬元/kW，每案最高1,000萬元</li>
+        </ul>
+      </div>
+      <div class="card card-amber">
+        <h3><span class="ic ic-amber">❤️</span> 衛福部</h3>
+        <ul>
+          <li>長照輔具及居家無障礙改善（長照需要2級以上）</li>
+          <li>4萬元或6萬元/每3年</li>
+          <li>115年7月起新增智慧科技輔具補助（含居家無障礙2萬元）</li>
+        </ul>
+      </div>
+      <div class="card card-blue">
+        <h3><span class="ic ic-blue">🏦</span> 內政部</h3>
+        <ul>
+          <li>老宅延壽：本計畫</li>
+          <li>耐震補強：可另申請弱層補強工程補助（住宅組）</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. FAQ -->
+<div class="section fadein" id="faq">
+  <div class="sec-label">常見問題</div>
+  <div class="sec-title">申請前最常被問到的問題</div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">家中沒有65歲以上長者，還可以申請嗎？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">可以。65歲以上長者的要求，只針對「公寓共用部分修繕補助」，全棟至少1人設籍戶籍成員符合此條件即可。透天住宅及公寓室內（專有部分）的修繕補助，並無硬性規定需有65歲長者，但若有，可享額外加碼至30萬元/戶。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">公寓還沒有管理委員會，怎麼辦？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">沒有管委會者，由全體區分所有權人同意並推派代表人申請，不必非得成立管委會。若想成立管委會，可洽詢各縣市政府公寓大廈業務諮詢窗口（各縣市電話詳見聯絡窗口區）。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">評估結果不好，還可以申請補助嗎？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">可以。結構安全性能評估結果不公開，也不影響補助核准與否。評估目的是讓屋主了解房屋結構狀況，並決定是否進行修繕、補強或重建。若有提升耐震能力的需求，可另向國土署申請弱層補強工程補助。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">已申請過都市更新整建維護，可以再申請老宅延壽嗎？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">可以，但同一補助項目不可重複申請。例如若已申請整建維護的立面修繕，則不可再申請老宅延壽的立面修繕；但可申請其他未補助過的項目，例如電梯、管線、無障礙設施等。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">頂樓加蓋可以申請補助嗎？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">頂樓加蓋等違建部分本身不得申請修繕補助。但可以申請「老舊招牌、違規物或違建拆除」的費用補助（上限40萬元/棟），且申請老宅延壽並不強制要求拆除違建。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">已辦過長照的居家無障礙環境改善補助，可再申請老宅延壽的室內補助嗎？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">原則不得重複申請相同補助項目。但若曾申請的居家無障礙環境改善項目，已超過使用年限或損壞不堪使用者，可提出申請。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">透天的「棟」是怎麼算的？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">以「單一共同樓梯及出入口」為1棟。補助以棟為單位。若3棟以上連棟透天共同申請，還可提高核定優先順序。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">申請時需要先找建築師嗎？<span class="faq-arrow">›</span></div>
+    <div class="faq-a">非強制，但建議委由建築師辦理，以確保安全與施工品質。未來官方將於「都市更新入口網」公布老宅延壽專業建築師諮詢名冊，可供民眾洽詢。</div>
+  </div>
+</div>
+
+<!-- AD SLOT: after FAQ -->
+<div id="ad-slot-4"></div>
+
+<!-- 8. 聯絡窗口 -->
+<div class="section fadein" id="contact">
+  <div class="sec-label">聯絡窗口</div>
+  <div class="sec-title">找誰申請？電話是多少？</div>
+
+  <div class="callout callout-green" style="margin-bottom:1.2rem">
+    <strong>中央諮詢專線｜內政部國土管理署</strong>
+    ☎ (02) 7701-9919　服務時間：週一至週五 08:00–17:00
+    <br>線上資訊：搜尋「都市更新入口網」→ 老宅延壽專區
+  </div>
+
+  <div class="contact-grid">
+    <div class="contact-card"><div class="city">臺北市政府</div><div class="dept">都市更新處</div><div class="tel">02-2781-5696 分機3146、3149</div></div>
+    <div class="contact-card"><div class="city">新北市政府</div><div class="dept">工務局</div><div class="tel">02-2960-3456 分機8972</div></div>
+    <div class="contact-card"><div class="city">桃園市政府</div><div class="dept">建築管理處</div><div class="tel">03-3322-101 分機6115</div></div>
+    <div class="contact-card"><div class="city">臺中市政府</div><div class="dept">都市發展局</div><div class="tel">04-2228-9111 分機65500</div></div>
+    <div class="contact-card"><div class="city">臺南市政府</div><div class="dept">工務局</div><div class="tel">06-2991-111 分機8666</div></div>
+    <div class="contact-card"><div class="city">高雄市政府</div><div class="dept">工務局建築管理處</div><div class="tel">07-3368-333 分機2425、2423</div></div>
+    <div class="contact-card"><div class="city">基隆市政府</div><div class="dept">都市發展處</div><div class="tel">02-2420-1122 分機1818</div></div>
+    <div class="contact-card"><div class="city">新竹市政府</div><div class="dept">都市發展處</div><div class="tel">03-5285-160 / 03-5282-064</div></div>
+    <div class="contact-card"><div class="city">嘉義市政府</div><div class="dept">工務處</div><div class="tel">05-2254-321 分機214</div></div>
+    <div class="contact-card"><div class="city">新竹縣政府</div><div class="dept">工務處</div><div class="tel">03-5518-101 分機6369</div></div>
+    <div class="contact-card"><div class="city">苗栗縣政府</div><div class="dept">工商發展處</div><div class="tel">037-558-821</div></div>
+    <div class="contact-card"><div class="city">彰化縣政府</div><div class="dept">建設處</div><div class="tel">04-7531-280 / 04-7531-281</div></div>
+    <div class="contact-card"><div class="city">南投縣政府</div><div class="dept">建設處</div><div class="tel">049-2222-106 分機1431</div></div>
+    <div class="contact-card"><div class="city">雲林縣政府</div><div class="dept">建設處</div><div class="tel">05-5522-183 分機2182</div></div>
+    <div class="contact-card"><div class="city">嘉義縣政府</div><div class="dept">經濟發展處</div><div class="tel">05-3620-123 分機8603</div></div>
+    <div class="contact-card"><div class="city">屏東縣政府</div><div class="dept">城鄉發展處</div><div class="tel">08-732-0415 分機3330</div></div>
+    <div class="contact-card"><div class="city">宜蘭縣政府</div><div class="dept">建設處</div><div class="tel">03-9251-000 分機1318</div></div>
+    <div class="contact-card"><div class="city">花蓮縣政府</div><div class="dept">建設處</div><div class="tel">03-8227-171 分機538</div></div>
+    <div class="contact-card"><div class="city">臺東縣政府</div><div class="dept">建設處</div><div class="tel">089-326-141 分機342、343</div></div>
+    <div class="contact-card"><div class="city">澎湖縣政府</div><div class="dept">建設處</div><div class="tel">06-9274-400 分機408</div></div>
+    <div class="contact-card"><div class="city">金門縣政府</div><div class="dept">城鄉發展處</div><div class="tel">08-2312-877 分機62351</div></div>
+    <div class="contact-card"><div class="city">連江縣政府</div><div class="dept">工務處</div><div class="tel">08-3625-330 分機6331–6334</div></div>
+  </div>
+</div>
+
+</div><!-- end .content -->
+
+<div class="footer">
+  <div>老宅延壽機能復新補助計畫｜資料整理自官方問答集、說明會簡報、摺頁（114年12月版）</div>
+  <div>主辦：內政部 · 內政部國土管理署｜計畫期程至民國116年12月31日止</div>
+  <div style="margin-top:6px">最新資訊請以地方政府公告及內政部官方網站為準</div>
+</div>
+
+<section class="author-box">
+  <h3>本文作者</h3>
+  <p>
+    本指南由 <strong>桃園房仲｜小楊說房</strong> 整理製作。<br>
+    一位資深軟體架構師背景的房屋仲介，現專注於農地及房地產，<br>
+    透過大數據技術分析市場，幫助買賣雙方少走冤枉路。
+  </p>
+  <a class="line-btn" href="https://lin.ee/sieT4fn" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 48 48" fill="none">
+      <path d="M24 4C13 4 4 11.8 4 21.4c0 8.5 7.5 15.6 17.7 17.1.7.2 1.6.5 1.8 1.1.2.6.1 1.5 0 2.1l-.3 1.6c-.1.5-.4 2 1.8 1.1 2.2-.9 11.8-7 16.1-12C44.1 28.8 44 25.2 44 24c0-11-9-20-20-20z" fill="#fff"/>
+    </svg>
+    加 LINE 諮詢
+  </a>
+</section>
+
+<script>
+const ADS = [
+  {
+    url: 'https://www.facebook.com/share/15eviZX3h6e/',
+    color: '#6b4d3d',
+    eyebrow: '🏡 小楊說房 · 桃園房仲',
+    title: '藝文特區精華地段 雙面臨路建地',
+    sub: 'G12捷運步行範圍內，稀有釋出，面寬條件佳，自建或長期投資都適合',
+    cta: '點擊看完整建地資訊',
+    ctaBg: '#6b4d3d'
+  },
+  {
+    url: 'https://www.facebook.com/share/19mci4wo2K/',
+    color: '#3d5a80',
+    eyebrow: '🏡 小楊說房 · 桃園房仲',
+    title: '紐約四季 景觀三房+車位',
+    sub: '藝文特區指標社區，低公設高坪效，生活機能完善',
+    cta: '點擊瞭解房屋詳情',
+    ctaBg: '#3d5a80'
+  },
+  {
+    url: 'https://www.facebook.com/share/1NdKxM8xRo/',
+    color: '#4a7c59',
+    eyebrow: '🏡 小楊說房 · 桃園房仲',
+    title: '蘂竹光華段 75坪豪華大透天',
+    sub: '全新整理完工，臨路店面+住家雙用途，地點絕佳',
+    cta: '點擊觀賞實景圖',
+    ctaBg: '#4a7c59'
+  },
+  {
+    url: 'https://www.facebook.com/share/18gmPBxKGZ/',
+    color: '#7a3e3e',
+    eyebrow: '🏡 小楊說房 · 桃園房仲',
+    title: '冠倫大國 朝南三房+車位',
+    sub: '成熟生活圈，近市場/學校/醫療，機能一應俱全',
+    cta: '點擊查看完整資訊',
+    ctaBg: '#7a3e3e'
+  },
+  {
+    url: 'https://www.facebook.com/share/1YPWxk97zj/',
+    color: '#5a4e7c',
+    eyebrow: '🏡 小楊說房 · 桃園房仲',
+    title: '大有路商圈 四房車美宅',
+    sub: '採光通風佳，超大四房含車位，機能成熟，出社區就是健身房',
+    cta: '瞭解詳細規劃',
+    ctaBg: '#5a4e7c'
+  }
+];
+
+// 廣告槽位 id 清單（依頁面排列順序）
+const AD_SLOTS = ['ad-slot-1', 'ad-slot-2', 'ad-slot-3', 'ad-slot-4'];
+
+// 決定本次要放幾則廣告（亂數，但不超過廣告總數）
+function pickAdSlots(totalSlots, totalAds) {
+  // 最多放 totalAds 則，在 totalSlots 個位置中隨機選
+  const count = Math.min(totalAds, Math.floor(Math.random() * (totalSlots - 1)) + 1);
+  // Fisher-Yates shuffle 選出槽位
+  const slots = [...Array(totalSlots).keys()];
+  for (let i = slots.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [slots[i], slots[j]] = [slots[j], slots[i]];
+  }
+  return slots.slice(0, count).sort((a, b) => a - b);
+}
+
+function renderAd(ad) {
+  return `
+    <a class="ad-card" href="${ad.url}" target="_blank" rel="noopener sponsored">
+      <span class="ad-label">廣告</span>
+      <div class="ad-inner">
+        <div class="ad-color-bar" style="background:${ad.color}"></div>
+        <div class="ad-body">
+          <div class="ad-eyebrow" style="color:${ad.color}">${ad.eyebrow}</div>
+          <div class="ad-title">${ad.title}</div>
+          <div class="ad-sub">${ad.sub}</div>
+          <span class="ad-cta" style="background:${ad.ctaBg}">${ad.cta} →</span>
+        </div>
+      </div>
+    </a>`;
+}
+
+(function injectAds() {
+  const chosenSlots = pickAdSlots(AD_SLOTS.length, ADS.length);
+  // 打散廣告順序
+  const shuffledAds = [...ADS].sort(() => Math.random() - 0.5);
+
+  chosenSlots.forEach((slotIdx, adIdx) => {
+    const el = document.getElementById(AD_SLOTS[slotIdx]);
+    if (el && shuffledAds[adIdx]) {
+      el.innerHTML = renderAd(shuffledAds[adIdx]);
+    }
+  });
+})();
+
+// ── NAV scroll ──
+function scrollSection(id, btn) {
+  document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// Update active nav on scroll
+const sections = ['why','who','items','flow','priority','compare','faq','contact'];
+window.addEventListener('scroll', () => {
+  let cur = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 120) cur = id;
+  });
+  if (cur) {
+    const idx = sections.indexOf(cur);
+    document.querySelectorAll('.nav-btn').forEach((b, i) => {
+      b.classList.toggle('active', i === idx);
+    });
+  }
+});
+
+// ── FAQ toggle ──
+function toggleFaq(el) {
+  el.parentElement.classList.toggle('open');
+}
+
+// ── Item filter ──
+function filterItems(type, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('#items-list [data-type]').forEach(el => {
+    if (type === 'all') {
+      el.style.display = '';
+    } else if (type === 'both') {
+      el.style.display = el.dataset.type === 'both' ? '' : 'none';
+    } else {
+      el.style.display = (el.dataset.type === type || el.dataset.type === 'both') ? '' : 'none';
+    }
+  });
+}
+
+// ── Eligibility checker ──
+function checkEligibility() {
+  const checks = ['c1','c2','c3','c4','c5','c6'].map(id => document.getElementById(id).checked);
+  const total = checks.filter(Boolean).length;
+  const result = document.getElementById('checker-result');
+  result.style.display = 'block';
+  if (total === 0) { result.style.display = 'none'; return; }
+  if (checks.every(Boolean)) {
+    result.style.background = '#f0f8f0';
+    result.style.color = 'var(--sage-dark)';
+    result.style.border = '1px solid var(--sage-light)';
+    result.innerHTML = '✅ <strong>恭喜！初步符合申請條件。</strong>建議進一步聯絡地方政府窗口確認，並準備結構安全評估，開始申請流程。';
+  } else {
+    const missing = [];
+    if (!checks[0]) missing.push('屋齡不足30年');
+    if (!checks[1]) missing.push('缺乏使用執照或合法證明');
+    if (!checks[2]) missing.push('樓層不符（需4～6層公寓或6層以下透天）');
+    if (!checks[3]) missing.push('住宅使用比率不符');
+    if (!checks[4]) missing.push('已進入都更或危老重建程序');
+    if (!checks[5]) missing.push('公寓為單一所有權人持有');
+    result.style.background = 'var(--rust-light)';
+    result.style.color = 'var(--rust)';
+    result.style.border = '1px solid #f5c0b0';
+    result.innerHTML = `⚠️ 目前有 ${6-total} 項條件不符：<strong>${missing.join('、')}</strong>。建議洽詢地方政府窗口進一步確認。`;
+  }
+}
+</script>
+</body>
+</html>
